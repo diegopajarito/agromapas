@@ -1,16 +1,10 @@
 ﻿<%@ Page Title="Agromapas" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="false"
     CodeFile="Default.aspx.vb" Inherits="_Default" %>
 
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        Inicia Agromapas
-    </h2>
-
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="map">
      
-    <div style="width:400px; height:400px" id='map'></div>
-    <p>
-        Esta es la primera línea de código de agromapas
-    </p>
+    <div style="width:800px; height:600px" id='map'></div>
+
 
     <script src='http://openlayers.org/api/OpenLayers.js'></script>
     <script defer="defer" type="text/javascript">
