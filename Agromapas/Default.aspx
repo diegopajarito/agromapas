@@ -8,8 +8,11 @@
 
     <script src='./Lib/OpenLayers.js'></script>
     <script defer="defer" type="text/javascript">
-        var map = new OpenLayers.Map('map', { maxResolution: 0.703125 });
 
+       //Creación del Contenedor de visualización
+        var map = new OpenLayers.Map('map');
+
+        //Adición de las capas a Visualizar
         var OSM = new OpenLayers.Layer.OSM();
         map.addLayer(OSM);
 
@@ -26,6 +29,11 @@
         var wmsIgac = new OpenLayers.Layer.WMS('Departamentos', "http://geoservice.igac.gov.co/IGAC100k?",
                 { layers: 'departamentos', srs: 'EPSG:4326', format: 'image/jpeg' }, { isBaseLayer: false });
         map.addLayer(wmsIgac);
+
+        //Adición de la capa de Marco de Áreas
+        var wmsMarco2010 = new OpenLayers.Layer.WMS('Marco 2010', 'http://localhost:8080/geoserver/Agronet/wms?',
+                { layers: 'Agronet:marco2010', srs: 'EPSG:4326', format: 'image/png', maxExtent: new OpenLayers.Bounds(-80, -5, 60, 15) }, { isBaseLayer: false, transparent: true, visibility: false });
+                map.addLayer(wmsMarco2010);
 
         map.addControl(new OpenLayers.Control.LayerSwitcher());
         map.zoomToMaxExtent();
